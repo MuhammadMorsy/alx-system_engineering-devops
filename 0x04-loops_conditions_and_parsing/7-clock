@@ -6,11 +6,11 @@ h=0 # h for hours.
 while [ $h -lt 13 ]
 do
 	echo "Hour: $h"
-	m=0 # m for minute.
+	m=1 # m for minute.
 	while [ $m -lt 60 ]
 	do
 		echo "$m"
-		m=$(( m+=1 ))
+		((m++))
 	done
-	h=$(( h+=1 ))
+	((h++))
 done
