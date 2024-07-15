@@ -3,14 +3,14 @@
 # 	The implementation matches the full line, including whitespace at the beginning and end.
 # 	If the line is not contained in the given file, Puppet will append the line to the end of the file to ensure the desired state.
 # 	Multiple resources may be declared to manage multiple lines in the same file.
-include stdlib
-file_line {'Declare identity file'
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => '     IdentityFile ~/.ssh/school'
+
+file_line {'Declare identity file':
+  path    => '/etc/ssh/ssh_config',
+  line    => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
 file_line { 'Turn off passwd auth':
-  ensure => present,
-  path   => '/etc/ssh/ssh_config',
-  line   => '    PasswordAuthentication no'
+  path    => '/etc/ssh/ssh_config',
+  line    => '    PasswordAuthentication no',
+  replace => true,
 }
